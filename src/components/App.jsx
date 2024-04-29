@@ -1,22 +1,15 @@
-// import { useState } from "react";
-import Profile from "./Profile";
 import "./App.css";
+import userData from "../userData.json";
+import friends from "../friendsData.json";
+import transactions from "../transactions.json";
 
-const userData = {
-  username: "Jacques Gluke",
-  tag: "jgluke",
-  location: "Ocho Rios, Jamaica",
-  avatar: "https://cdn-icons-png.flaticon.com/512/2922/2922506.png",
-  stats: {
-    followers: 5603,
-    views: 4827,
-    likes: 1308,
-  },
-};
+import Profile from "./Profile/Profile";
+import FriendList from "./FriendList/FriendList";
+import TransactionHistory from "./TransactionHistory/TransactionHistory";
 
 function App() {
   return (
-    <>
+    <div className="container">
       <Profile
         name={userData.username}
         tag={userData.tag}
@@ -24,7 +17,9 @@ function App() {
         image={userData.avatar}
         stats={userData.stats}
       />
-    </>
+      <FriendList friends={friends} />
+      <TransactionHistory items={transactions} />
+    </div>
   );
 }
 
